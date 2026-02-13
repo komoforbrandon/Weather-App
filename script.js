@@ -1,21 +1,21 @@
-for (let i=0; i<5; i++) {
-const codeblock = document.querySelector('.dayhrs')
-const cloneBlock = codeblock.cloneNode(true)
-const parentContainer =document.querySelector('.today-forcast')
+for (let i = 0; i < 5; i++) {
+  const codeblock = document.querySelector('.dayhrs')
+  const cloneBlock = codeblock.cloneNode(true)
+  const parentContainer = document.querySelector('.today-forcast')
   parentContainer.appendChild(cloneBlock)
 }
 
-for (let i=0; i<6; i++) {
-const codeblock = document.querySelector('.prev-days div')
-const cloneBlock = codeblock.cloneNode(true)
-const parentContainer =document.querySelector('.prev-days')
+for (let i = 0; i < 6; i++) {
+  const codeblock = document.querySelector('.prev-days div')
+  const cloneBlock = codeblock.cloneNode(true)
+  const parentContainer = document.querySelector('.prev-days')
   parentContainer.appendChild(cloneBlock)
 }
 
-for (let i=1; i<7; i++) {
-const codeblock = document.querySelector('.days-date')
-const cloneBlock = codeblock.cloneNode(true)
-const parentContainer =document.querySelector('.weather-forcast')
+for (let i = 1; i < 7; i++) {
+  const codeblock = document.querySelector('.days-date')
+  const cloneBlock = codeblock.cloneNode(true)
+  const parentContainer = document.querySelector('.weather-forcast')
   parentContainer.appendChild(cloneBlock)
 }
 
