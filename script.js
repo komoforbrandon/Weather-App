@@ -1,8 +1,30 @@
+for (let i=0; i<5; i++) {
+const codeblock = document.querySelector('.dayhrs')
+const cloneBlock = codeblock.cloneNode(true)
+const parentContainer =document.querySelector('.today-forcast')
+  parentContainer.appendChild(cloneBlock)
+}
+
+for (let i=0; i<6; i++) {
+const codeblock = document.querySelector('.prev-days div')
+const cloneBlock = codeblock.cloneNode(true)
+const parentContainer =document.querySelector('.prev-days')
+  parentContainer.appendChild(cloneBlock)
+}
+
+for (let i=1; i<7; i++) {
+const codeblock = document.querySelector('.days-date')
+const cloneBlock = codeblock.cloneNode(true)
+const parentContainer =document.querySelector('.weather-forcast')
+  parentContainer.appendChild(cloneBlock)
+}
+
 const apiKey = 'fc1c6c83c8214472aad84239260702'
 const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
 const temp = document.querySelector('#temp-celcius')
 const searchBox = document.querySelector("#search")
 const searchBtn = document.querySelector('#search-button')
+
 fetch('http://ip-api.com/json/')
   .then(response => response.json())
   .then(data => {
@@ -27,9 +49,9 @@ async function checkWeather(city) {
       timeStyle: 'short'
     })
     document.querySelector('#pressure-mb').innerHTML = data.current.pressure_mb + `mb`
-    document.querySelector('#precip_mm').innerHTML = data.current.precip_mm + `mm`
+    document.querySelector('#precip-mm').innerHTML = data.current.precip_mm + `mm`
     document.querySelector('#humidity').innerHTML = data.current.humidity + `%`
-    document.querySelector('#wind_mph').innerHTML = (data.current.wind_mph * 1.609).toFixed(1) + `km/h`
+    document.querySelector('#wind-mph').innerHTML = (data.current.wind_mph * 1.609).toFixed(1) + `km/h`
     document.querySelector('#weatherimg').src = `http:${data.current.condition.icon}`
 
     const days = document.querySelectorAll('.time-date')
