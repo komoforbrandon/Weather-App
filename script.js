@@ -20,12 +20,12 @@ for (let i = 1; i < 7; i++) {
 }
 
 const apiKey = 'fc1c6c83c8214472aad84239260702' // gitleaks:allow
-const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
+const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
 const temp = document.querySelector('#temp-celcius')
 const searchBox = document.querySelector('#search')
 const searchBtn = document.querySelector('#search-button')
 
-fetch('http://ip-api.com/json/')
+fetch('https://ip-api.com/json/')
   .then(response => response.json())
   .then(data => {
     checkWeather(data.city)
@@ -57,7 +57,7 @@ async function checkWeather (city) {
     const days = document.querySelectorAll('.time-date')
     const tempIn = document.querySelectorAll('.temp')
     const dayImg = document.querySelectorAll('.daysimgs')
-    const baseUrl = `http://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=`
+    const baseUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=`
 
     function getLast7Dates () {
       const dates = []
@@ -91,7 +91,7 @@ async function checkWeather (city) {
         return {
           date: formatDate(forecast.date),
           temp: Math.round(forecast.day.avgtemp_c),
-          icon: 'http:' + forecast.day.condition.icon,
+          icon: 'https:' + forecast.day.condition.icon,
           condition: forecast.day.condition.text
         }
       })
@@ -112,7 +112,7 @@ async function checkWeather (city) {
     const todayTimes = document.querySelectorAll('.hrs-time')
     const todayTemps = document.querySelectorAll('.hrs-temp')
     const todayImgs = document.querySelectorAll('.todayimgs')
-    const forecastBaseUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=yes&alerts=no`
+    const forecastBaseUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=yes&alerts=no`
 
     async function todayForecast () {
       const response3 = await fetch(forecastBaseUrl)
@@ -134,7 +134,7 @@ async function checkWeather (city) {
           minute: '2-digit'
         })
         todayTimes[counter].innerHTML = newTime
-        todayImgs[counter].src = 'http:' + todayforecst.hour[forwardCounter].condition.icon
+        todayImgs[counter].src = 'https:' + todayforecst.hour[forwardCounter].condition.icon
         todayTemps[counter].innerHTML = todayforecst.hour[forwardCounter].temp_c + '°C'
         console.log(todayTemps[counter])
         counter++
@@ -157,7 +157,7 @@ async function checkWeather (city) {
           day: '2-digit'
         })
         nextDays[i].innerHTML = date
-        nextDaysImgs[i].src = 'http:' + data4.forecast.forecastday[i].day.condition.icon
+        nextDaysImgs[i].src = 'https:' + data4.forecast.forecastday[i].day.condition.icon
         nextDaysHdty[i].innerHTML = data4.forecast.forecastday[i].day.avghumidity + '%'
         nextDaysTemp[i].innerHTML = data4.forecast.forecastday[i].day.avgtemp_c + '°C'
       }
