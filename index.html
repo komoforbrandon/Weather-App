@@ -1,13 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather app</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/Group.png" type="image/png">
 </head>
+
 <body>
-    
-<script src="script.js"></script>
+    <header class="form">
+        <h2 class="ndoppt">NDOP<span class="weatherpt">Weather</span></h2>
+        <div class="form">
+            <input type="text" name="search" id="search" placeholder="Search for Location" spellcheck="false">
+            <button id="search-button"><img src="assets/search.png" alt="search icon"></button>
+        </div>
+        <p class="todaydate"> Today, <span id="today"></span></p>
+    </header>
+    <main>
+        <section class="temp-weather">
+            <article class="part1-header">
+                <header>
+                    <img id="locationicon" src="assets/location.png" alt="location icon">
+                    <p class="location">location, Country&#x276F;</p>
+                </header>
+                <p id="description">Weather Description</p>
+                <h1 id="temp-celcius">0.00 <span id="celcius"><sup>o</sup>C</span></h1>
+                <p id="date">last update time</p>
+            </article>
+            <article class="weatherimage">
+                <img src="assets/Group.png" id="weatherimg" alt="weather logo">
+            </article>
+        </section>
+
+        <section class="grid-container">
+            <div class="properties">
+                <section class="weather-properties">
+                    <article class="pressure box-design">
+                        <header>
+                            <h3>Pressure</h3>
+                            <span class="instrument">Barometer</span>
+                        </header>
+                        <div class="disp-flex">
+                            <img src="assets/Group (8).png" alt="Barometer">
+                            <p id="pressure-mb">0.00 mb</p>
+                        </div>
+                    </article>
+                    <article class="precipitation box-design">
+                        <header>
+                            <h3>Precipitate</h3>
+                            <span class="instrument">Rain gauge</span>
+                        </header>
+                        <div class="disp-flex">
+                            <img src="assets/pressure.png" alt="pressure">
+                            <p id="precip_mm">0.00 mm</p>
+                        </div>
+                    </article>
+                    <article class="humid-container box-design">
+                        <header>
+                            <h3>Humidity</h3>
+                            <span class="instrument">Hydrometer</span>
+                        </header>
+                        <div class="disp-flex">
+                            <img src="assets/humid.png" alt="humidity icon">
+                            <p id="humidity">0.00 &percnt;</p>
+                        </div>
+                    </article>
+                    <article class="wind-container box-design">
+                        <header>
+                            <h3>Wind</h3>
+                            <span>Anemometer</span>
+                        </header>
+                        <div class="disp-flex">
+                            <img src="assets/anem.png" alt="anem icon">
+                            <p id="wind_mph">00.0km/h</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="todays-hrs">
+                    <h3>Today Forecast</h3>
+                    <article class="today-forcast">
+                        <div class="dayhrs firsthrs">
+                            <p class="hrs-time">time</p>
+                            <img class="todayimgs" src="assets/icon.png" alt="hours weather">
+                            <p class="hrs-temp">00.0 <sup>o</sup>C</p>
+                        </div>
+                        <div class="dayhrs secondhrs">
+                            <p class="hrs-time">time</p>
+                            <img class="todayimgs" src="assets/icon.png" alt="hours weather1">
+                            <p class="hrs-temp">00.0 <sup>o</sup>C</p>
+                        </div>
+                        <div class="dayhrs thirdhrs ">
+                            <p class="hrs-time">time</p>
+                            <img class="todayimgs" src="assets/icon.png" alt="hours weather2">
+                            <p class="hrs-temp">00.0 <sup>o</sup>C</p>
+                        </div>
+                        <div class="dayhrs fourthrs">
+                            <p class="hrs-time">time</p>
+                            <img class="todayimgs" src="assets/icon.png" alt="hours weather3">
+                            <p class="hrs-temp">00.0 <sup>o</sup>C</p>
+                        </div>
+                        <div class="dayhrs fifthrs">
+                            <p class="hrs-time">time</p>
+                            <img class="todayimgs" src="assets/icon.png" alt="hours weather4">
+                            <p class="hrs-temp">00.0 <sup>o</sup>C</p>
+                        </div>
+                        <div class="dayhrs fifthrs">
+                            <p class="hrs-time">time</p>
+                            <img class="todayimgs" src="assets/icon.png" alt="hours weather4">
+                            <p class="hrs-temp">00.0 <sup>o</sup>C</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="weatherhistory">
+                    <h3>Last 7 Days Weather</h3>
+                    <article class="last-7-days prev-days">
+                        <div>
+                            <p class="time-date">day1</p>
+                            <img class="daysimgs" src="assets/Group (1).png" alt="weather icon">
+                            <p class="temp">000</p>
+                        </div>
+                        <div>
+                            <p class="time-date">day2</p>
+                            <img class="daysimgs" src="assets/Group (2).png" alt="weather icon">
+                            <p class="temp">0.00</p>
+                        </div>
+                        <div>
+                            <p class="time-date">day3</p>
+                            <img class="daysimgs" src="assets/Group (4).png" alt="weather icon">
+                            <p class="temp">0.00</p>
+                        </div>
+                        <div>
+                            <p class="time-date">day4</p>
+                            <img class="daysimgs" src="assets/Group.png" alt="weather icon">
+                            <p class="temp">0.00</p>
+                        </div>
+                        <div>
+                            <p class="time-date">day5</p>
+                            <img class="daysimgs" src="assets/Group (2).png" alt="weather icon">
+                            <p class="temp">0.00</p>
+                        </div>
+                        <div>
+                            <p class="time-date">day6</p>
+                            <img class="daysimgs" src="assets/Group (4).png" alt="weather icon">
+                            <p class="temp">0.00</p>
+                        </div>
+                        <div>
+                            <p class="time-date">day7</p>
+                            <img class="daysimgs" src="assets/Group (1).png" alt="weather icon">
+                            <p class="temp">0.00</p>
+                        </div>
+                    </article>
+                </section>
+            </div>
+            <section class="forecast">
+                <h3>7 Days Weather Forecast</h3>
+                <article class="weather-forcast">
+                    <div class="days-date">
+                        <p class="day">day1</p>
+                        <section>
+                            <img src="assets/Group (4).png" class="nextdayimg" alt="weather photeo">
+                            <span class="humidties">0.0%</span>
+                        </section>
+                        <p class="temp-days">00.0 <sup>o</sup>C</p>
+                    </div>
+                    <div class="days-date">
+                        <p class="day">day2</p>
+                        <section>
+                            <img src="assets/Group (1).png" class="nextdayimg" alt="weather photeo">
+                            <span class="humidties">0.0%</span>
+                        </section>
+                        <p class="temp-days">00.0 <sup>o</sup>C</p>
+                    </div>
+                    <div class="days-date">
+                        <p class="day">day3</p>
+                        <section>
+                            <img src="assets/Group (9).png" class="nextdayimg" alt="weather photeo">
+                            <span class="humidties">0.0%</span>
+                        </section>
+                        <p class="temp-days">00.0 <sup>o</sup>C</p>
+                    </div>
+                    <div class="days-date">
+                        <p class="day">day4</p>
+                        <section>
+                            <img src="assets/Group (1).png" class="nextdayimg" alt="weather photeo">
+                            <span class="humidties">0.0%</span>
+                        </section>
+                        <p class="temp-days">00.0 <sup>o</sup>C</p>
+                    </div>
+                    <div class="days-date">
+                        <p class="day">day5</p>
+                        <section>
+                            <img src="assets/Group (2).png" class="nextdayimg" alt="weather photeo">
+                            <span class="humidties">0.0%</span>
+                        </section>
+                        <p class="temp-days">00.0 <sup>o</sup>C</p>
+                    </div>
+                    <div class="days-date">
+                        <p class="day">day6</p>
+                        <section>
+                            <img src="assets/Group (2).png" class="nextdayimg" alt="weather photeo">
+                            <span class="humidties">0.0%</span>
+                        </section>
+                        <p class="temp-days">00.0 <sup>o</sup>C</p>
+                    </div>
+                    <div class="days-date">
+                        <p class="day">day7</p>
+                        <section>
+                            <img src="assets/Group (2).png" class="nextdayimg" alt="weather photeo">
+                            <span class="humidties">0.0%</span>
+                        </section>
+                        <p class="temp-days">00.0 <sup>o</sup>C</p>
+                    </div>
+                </article>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;NDOPWeather</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
+
 </html>
