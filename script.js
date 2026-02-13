@@ -19,7 +19,7 @@ const parentContainer =document.querySelector('.weather-forcast')
   parentContainer.appendChild(cloneBlock)
 }
 
-const apiKey = 'fc1c6c83c8214472aad84239260702'
+const apiKey = process.env.MY_API_KEY
 const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
 const temp = document.querySelector('#temp-celcius')
 const searchBox = document.querySelector("#search")
