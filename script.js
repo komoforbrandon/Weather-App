@@ -60,7 +60,7 @@ async function checkWeather (city) {
     const baseUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=`
 
     function getLast7Dates () {
-      const dates = [];
+      const dates = []
       for (let i = 1; i <= 7; i++) {
         const date = new Date()
         date.setDate(date.getDate() - i)
@@ -102,25 +102,25 @@ async function checkWeather (city) {
         dayImg[i].src = weatherData[i].icon
       }
       days[0].innerHTML = 'Y\'day'
-      console.log(weatherData);
-      return weatherData;
+      console.log(weatherData)
+      return weatherData
     }
-    fetchLast7DaysWeather();
+    fetchLast7DaysWeather()
 
     const lastHrs = (new Date(data.current.last_updated)).getHours()
-    console.log(`This is the last update hour:`, lastHrs)
+    console.log('This is the last update hour:', lastHrs)
     const todayTimes = document.querySelectorAll('.hrs-time')
     const todayTemps = document.querySelectorAll('.hrs-temp')
     const todayImgs = document.querySelectorAll('.todayimgs')
     const forecastBaseUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=yes&alerts=no`
 
-    async function todayForecast() {
+    async function todayForecast () {
       const response3 = await fetch(forecastBaseUrl)
       const data3 = await response3.json()
-      console.log(data3);
+      console.log(data3)
       const todayforecst = data3.forecast.forecastday[0]
       let counter = 0
-      let forwardCounter = lastHrs + 1;
+      let forwardCounter = lastHrs + 1
       for (let i = 0; i < 6; i++) {
         if (forwardCounter >= 23) {
           if (forwardCounter === 23) {
@@ -134,13 +134,12 @@ async function checkWeather (city) {
           minute: '2-digit'
         })
         todayTimes[counter].innerHTML = newTime
-        todayImgs[counter].src = `http:` + todayforecst.hour[forwardCounter].condition.icon
-        todayTemps[counter].innerHTML = todayforecst.hour[forwardCounter].temp_c + `°C`
+        todayImgs[counter].src = 'http:' + todayforecst.hour[forwardCounter].condition.icon
+        todayTemps[counter].innerHTML = todayforecst.hour[forwardCounter].temp_c + '°C'
         console.log(todayTemps[counter])
-        counter++;
+        counter++
         forwardCounter += 2
       }
-
     }
     todayForecast()
 
@@ -148,34 +147,33 @@ async function checkWeather (city) {
     const nextDaysImgs = document.querySelectorAll('.nextdayimg')
     const nextDaysHdty = document.querySelectorAll('.humidties')
     const nextDaysTemp = document.querySelectorAll('.temp-days')
-    async function fetchNext7DaysWeather() {
+
+    async function fetchNext7DaysWeather () {
       const response4 = await fetch(forecastBaseUrl)
       const data4 = await response4.json()
       for (let i = 0; i < 7; i++) {
-        let date = (new Date(data4.forecast.forecastday[i].date)).toLocaleDateString(`en-US`, {
+        const date = (new Date(data4.forecast.forecastday[i].date)).toLocaleDateString('en-US', {
           month: 'short',
           day: '2-digit'
         })
         nextDays[i].innerHTML = date
-        nextDaysImgs[i].src = `http:` + data4.forecast.forecastday[i].day.condition.icon
-        nextDaysHdty[i].innerHTML = data4.forecast.forecastday[i].day.avghumidity + `%`
-        nextDaysTemp[i].innerHTML = data4.forecast.forecastday[i].day.avgtemp_c + `°C`
+        nextDaysImgs[i].src = 'http:' + data4.forecast.forecastday[i].day.condition.icon
+        nextDaysHdty[i].innerHTML = data4.forecast.forecastday[i].day.avghumidity + '%'
+        nextDaysTemp[i].innerHTML = data4.forecast.forecastday[i].day.avgtemp_c + '°C'
       }
-
     }
     fetchNext7DaysWeather()
 
     if (data.current.temp_c > -5 && data.current.temp_c < 2) {
-      document.body.style.backgroundImage = `url('assets/bgimage.png')`
-    }
-    else if (data.current.temp_c > 2 && data.current.temp_c < 14) {
-      document.body.style.backgroundImage = `url('assets/bgweather.png')`
+      document.body.style.backgroundImage = 'url("assets/bgimage.png")'
+    } else if (data.current.temp_c > 2 && data.current.temp_c < 14) {
+      document.body.style.backgroundImage = 'url("assets/bgweather.png")'
     } else if (data.current.temp_c > 28 && data.current.temp_c < 34) {
-      document.body.style.backgroundImage = `url('assets/normalweatherimg.jpg')`
+      document.body.style.backgroundImage = 'url("assets/normalweatherimg.jpg")'
     } else if (data.current.temp_c > 34 && data.current.temp_c < 40) {
-      document.body.style.backgroundImage = `url('assets/bgsun.png')`
+      document.body.style.backgroundImage = 'url("assets/bgsun.png")'
     } else {
-      document.body.style.backgroundImage = `url('assets/naturalsun.jpg')`
+      document.body.style.backgroundImage = 'url("assets/naturalsun.jpg")'
     }
     const night = (new Date(data.current.last_updated)).getHours()
     if (night > 18 && night <= 23 || night >= 0 && night < 6) {
@@ -183,18 +181,18 @@ async function checkWeather (city) {
       document.body.style.backgroundImage = `url('assets/night${r}.jpeg')`
     }
     if (data.current.precip_mm > 0) {
-      document.body.style.backgroundImage = `url('assets/rain .gif')`
+      document.body.style.backgroundImage = 'url("assets/rain .gif")'
     }
     if (data.current.precip_mm > 0 && data.current.temp_c < -1) {
-      document.body.style.backgroundImage = `url('assets/snowing.gif')`
+      document.body.style.backgroundImage = 'url("assets/snowing.gif")'
     }
     if (data.current.temp_c < -4) {
-      document.body.style.backgroundImage = `url('assets/snow.gif')`
+      document.body.style.backgroundImage = 'url("assets/snow.gif")'
     }
     if (data.current.precip_mm > 3) {
-      document.body.style.backgroundImage = `url('assets/rainingex.gif')`
+      document.body.style.backgroundImage = 'url("assets/rainingex.gif")'
     }
-
+    
   } catch (error) {
     alert("Failed to fetch weather data due to wrong city name:", error);
   }
