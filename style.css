@@ -8,7 +8,7 @@
 }
 
 body {
-  background: #00000000 url("/assets/weather=thunderstrom.png") center center no-repeat;
+  background: #000 url("/assets/weather=thunderstrom.png") center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   width: 100rem;
@@ -121,13 +121,6 @@ h3 {
   height: fit-content;
 }
 
-.weather-properties article div img {
-  width: 60px;
-  height: 80px;
-  padding: 10px;
-}
-
-
 #temp-celcius {
   font-size: 5.6rem;
 }
@@ -167,7 +160,7 @@ h3 {
 }
 
 .forecast {
-  background-color: #00000044;
+  background-color: #0004;
   margin: 20px;
   padding: 20px;
   border-radius: 16px;
@@ -207,6 +200,12 @@ h3 {
   text-align: left;
 }
 
+.weather-properties article div img {
+  width: 60px;
+  height: 80px;
+  padding: 10px;
+}
+
 .todays-hrs {
   background-color: #00000041;
   padding: 10px;
@@ -244,7 +243,7 @@ footer {
   text-align: center;
 }
 
-footer p {
+.footerinfo {
   color: #fff;
   font-size: 14px;
 }
@@ -293,11 +292,9 @@ footer p {
     margin-right: 5px;
     padding: 15px;
   }
-
 }
 
 @media (max-width: 470px) {
-
   header.form {
     display: grid;
     grid-template-columns: 100%;
@@ -379,8 +376,8 @@ footer p {
     width: 100%;
   }
 
-  footer p {
-    color: #a8a611;
+  .footerinfo {
+    color: #ffeb39e1;
     font-size: 18px;
     text-align: center;
     margin: 5px;
