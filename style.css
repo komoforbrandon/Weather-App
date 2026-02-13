@@ -264,6 +264,11 @@ footer {
     height: 140px;
   }
 
+  #description {
+    font-size: 1.8rem;
+    font-weight: 550;
+  }
+
   .weather-properties {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

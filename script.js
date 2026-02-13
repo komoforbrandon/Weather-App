@@ -25,7 +25,7 @@ const temp = document.querySelector('#temp-celcius')
 const searchBox = document.querySelector('#search')
 const searchBtn = document.querySelector('#search-button')
 
-fetch('https://ip-api.com/json/')
+fetch('https://ipapi.co/json/')
   .then(response => response.json())
   .then(data => {
     checkWeather(data.city)
