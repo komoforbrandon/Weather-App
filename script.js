@@ -19,7 +19,7 @@ for (let i = 1; i < 7; i++) {
   parentContainer.appendChild(cloneBlock)
 }
 
-const apiKey = process.env.MY_API_KEY
+const apiKey = 'fc1c6c83c8214472aad84239260702' // gitleaks:allow
 const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
 const temp = document.querySelector('#temp-celcius')
 const searchBox = document.querySelector('#search')
@@ -176,8 +176,8 @@ async function checkWeather (city) {
       document.body.style.backgroundImage = 'url("assets/naturalsun.jpg")'
     }
     const night = (new Date(data.current.last_updated)).getHours()
-    if (night > 18 && night <= 23 || night >= 0 && night < 6) {
-      let r = Math.floor(Math.random() * 6) + 1
+    if ((night > 18 && night <= 23) || (night >= 0 && night < 6)) {
+      const r = Math.floor(Math.random() * 6) + 1
       document.body.style.backgroundImage = `url('assets/night${r}.jpeg')`
     }
     if (data.current.precip_mm > 0) {
@@ -192,12 +192,11 @@ async function checkWeather (city) {
     if (data.current.precip_mm > 3) {
       document.body.style.backgroundImage = 'url("assets/rainingex.gif")'
     }
-    
   } catch (error) {
-    alert("Failed to fetch weather data due to wrong city name:", error);
+    alert('Failed to fetch weather data due to wrong city name:', error)
   }
 }
 
-searchBtn.addEventListener("click", () => {
-  checkWeather(searchBox.value);
-});
+searchBtn.addEventListener('click', () => {
+  checkWeather(searchBox.value)
+})
