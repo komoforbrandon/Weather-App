@@ -254,6 +254,10 @@ footer {
     overflow: scroll;
   }
 
+  .ndoppt {
+    font-size: 30px;
+  }
+
   header.form {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -321,20 +325,31 @@ footer {
 
   .temp-weather {
     display: 70% 30%;
-    margin: auto 10px;
+    margin: 5px auto;
+  }
+
+  .part1-header {
+    margin-left: 8px;
+  }
+
+  .location {
+    font-size: 17px;
+    margin: auto;
+    font-weight: 600;
   }
 
   p {
+    font-size: 18px;
     font-weight: 400;
   }
 
   #description {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 600;
   }
 
   #temp-celcius {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     text-align: center;
   }
 
