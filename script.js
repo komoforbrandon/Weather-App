@@ -20,7 +20,7 @@ for (let i = 1; i < 7; i++) {
 }
 
 const apiKey = 'fc1c6c83c8214472aad84239260702' // gitleaks:allow
-const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
+const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
 const temp = document.querySelector('#temp-celcius')
 const searchBox = document.querySelector('#search')
 const searchBtn = document.querySelector('#search-button')
@@ -57,7 +57,7 @@ async function checkWeather (city) {
     const days = document.querySelectorAll('.time-date')
     const tempIn = document.querySelectorAll('.temp')
     const dayImg = document.querySelectorAll('.daysimgs')
-    const baseUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=`
+    const baseUrl = `http://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=`
 
     function getLast7Dates () {
       const dates = []
@@ -91,7 +91,7 @@ async function checkWeather (city) {
         return {
           date: formatDate(forecast.date),
           temp: Math.round(forecast.day.avgtemp_c),
-          icon: 'https:' + forecast.day.condition.icon,
+          icon: 'http:' + forecast.day.condition.icon,
           condition: forecast.day.condition.text
         }
       })
