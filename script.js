@@ -22,7 +22,7 @@ for (let i = 1; i < 7; i++) {
 const apiKey = process.env.MY_API_KEY
 const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
 const temp = document.querySelector('#temp-celcius')
-const searchBox = document.querySelector("#search")
+const searchBox = document.querySelector('#search')
 const searchBtn = document.querySelector('#search-button')
 
 fetch('http://ip-api.com/json/')
@@ -32,76 +32,76 @@ fetch('http://ip-api.com/json/')
   })
   .catch(error => console.error('Error:', error))
 
-async function checkWeather(city) {
+async function checkWeather (city) {
   try {
     const response = await fetch(apiUrl + city)
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
-    let data = await response.json()
+    const data = await response.json()
     console.log(data)
-    document.querySelector('.location').innerHTML = data.location.name + `,  ` + data.location.country + ` &#x276F;`
-    temp.innerHTML = data.current.temp_c.toFixed(1) + ` <sup>o</sup>C`
+    document.querySelector('.location').innerHTML = data.location.name + ',  ' + data.location.country + ' &#x276F;'
+    temp.innerHTML = data.current.temp_c.toFixed(1) + ' <sup>o</sup>C'
     document.querySelector('#description').innerHTML = data.current.condition.text
     document.querySelector('#date').innerHTML = data.current.last_updated
     document.querySelector('#today').innerHTML = new Date().toLocaleString([], {
       dateStyle: 'medium',
       timeStyle: 'short'
     })
-    document.querySelector('#pressure-mb').innerHTML = data.current.pressure_mb + `mb`
-    document.querySelector('#precip-mm').innerHTML = data.current.precip_mm + `mm`
-    document.querySelector('#humidity').innerHTML = data.current.humidity + `%`
-    document.querySelector('#wind-mph').innerHTML = (data.current.wind_mph * 1.609).toFixed(1) + `km/h`
+    document.querySelector('#pressure-mb').innerHTML = data.current.pressure_mb + 'mb'
+    document.querySelector('#precip-mm').innerHTML = data.current.precip_mm + 'mm'
+    document.querySelector('#humidity').innerHTML = data.current.humidity + '%'
+    document.querySelector('#wind-mph').innerHTML = (data.current.wind_mph * 1.609).toFixed(1) + 'km/h'
     document.querySelector('#weatherimg').src = `http:${data.current.condition.icon}`
 
     const days = document.querySelectorAll('.time-date')
     const tempIn = document.querySelectorAll('.temp')
     const dayImg = document.querySelectorAll('.daysimgs')
-    const baseUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=`;
+    const baseUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=`
 
-    function getLast7Dates() {
+    function getLast7Dates () {
       const dates = [];
       for (let i = 1; i <= 7; i++) {
-        const date = new Date();
-        date.setDate(date.getDate() - i);
-        dates.push(date.toISOString().split("T")[0]);
+        const date = new Date()
+        date.setDate(date.getDate() - i)
+        dates.push(date.toISOString().split('T')[0])
       }
-      return dates;
+      return dates
     }
 
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric"
-      });
+    function formatDate (dateStr) {
+      const date = new Date(dateStr)
+      return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric'
+      })
     }
 
-    async function fetchLast7DaysWeather() {
-      const dates = getLast7Dates();
+    async function fetchLast7DaysWeather () {
+      const dates = getLast7Dates()
       const requests = dates.map(date =>
         fetch(baseUrl + date).then(res => res.json())
-      );
+      )
 
-      const results = await Promise.all(requests);
+      const results = await Promise.all(requests)
 
       const weatherData = results.map(day => {
-        const forecast = day.forecast.forecastday[0];
+        const forecast = day.forecast.forecastday[0]
 
         return {
           date: formatDate(forecast.date),
           temp: Math.round(forecast.day.avgtemp_c),
-          icon: "https:" + forecast.day.condition.icon,
+          icon: 'https:' + forecast.day.condition.icon,
           condition: forecast.day.condition.text
-        };
-      });
+        }
+      })
 
       for (let i = 0; i < 7; i++) {
         days[i].innerHTML = weatherData[i].date
-        tempIn[i].innerHTML = weatherData[i].temp + `°C`
+        tempIn[i].innerHTML = weatherData[i].temp + '°C'
         dayImg[i].src = weatherData[i].icon
       }
-      days[0].innerHTML = `Y'day`
+      days[0].innerHTML = 'Y\'day'
       console.log(weatherData);
       return weatherData;
     }
