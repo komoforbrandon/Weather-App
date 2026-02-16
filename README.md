@@ -1,5 +1,5 @@
 # Weather App
-This is a Weather web app built using **HTML, CSS** and **JS**. It shows real time weather data i.e current weather, weather forecast hourly for the day, weather history for the past 7 days and next 7 days weather forecast. It's uses weatherapi to fetch the data and store in a json file which is then manipulated in the JS and also it also the fetch the user current location using ipapi, though it is not very accurate.
+This is a Weather web app built using **HTML, CSS** and **JS**. It shows real time weather data i.e current weather, weather forecast hourly for the day, weather history for the past 6 days and next 7 days weather forecast. It's uses weatherapi to fetch the data and store in a json file which is then manipulated in the JS and current location fetched using ipapi.
 
 ---
 ## Project Architecture
