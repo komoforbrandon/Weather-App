@@ -50,7 +50,7 @@ main {
   background-color: #14141475;
   color: #fff;
   font-size: 17px;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
 #search-button {
@@ -248,7 +248,7 @@ footer {
 }
 
 .footerinfo {
-  color: #fff;
+  color: #ffeb39e1;
   font-size: 14px;
 }
 
@@ -301,7 +301,7 @@ footer {
   #search,
   #search:hover,
   #search:active {
-    width: 550px;
+    width: 100%;
     margin-right: 5px;
     padding: 15px;
   }
@@ -311,20 +311,21 @@ footer {
   header.form {
     display: grid;
     grid-template-columns: 100%;
-    margin: 5px;
+    margin: 2px;
   }
 
   #search,
   #search:hover,
   #search:active {
-    margin: auto 5px;
-    padding: 10px;
+    margin: 0 5px 2px -4px;
+    padding: 8px 14px;
+    width: 100%;
   }
 
   #search-button {
+    margin: auto;
     width: fit-content;
-    border-radius: 20px;
-    padding: 10px;
+    padding: 8px;
   }
 
   .temp-weather {
@@ -404,7 +405,6 @@ footer {
   }
 
   .footerinfo {
-    color: #ffeb39e1;
     font-size: 18px;
     text-align: center;
     margin: 5px;
