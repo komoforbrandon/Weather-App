@@ -43,20 +43,20 @@ main {
 #search:hover,
 #search:active {
   outline: none;
-  padding: 8px 18px;
+  padding: 5px 18px;
   width: 500px;
   margin: 10px;
-  border: 1px solid #0000001c;
-  background-color: #00000075;
+  border: 2px solid #00000085;
+  background-color: #14141475;
   color: #fff;
   font-size: 17px;
   border-radius: 16px;
 }
 
 #search-button {
-  padding: 8px 16px;
+  padding: 8px 10px;
   margin: 10px 0;
-  border: 1px solid #0000001c;
+  border: 2px solid #00000085;
   background-color: #00000075;
   border-radius: 22px;
   cursor: pointer;
@@ -303,7 +303,7 @@ footer {
   }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 560px) {
   header.form {
     display: grid;
     grid-template-columns: 100%;
