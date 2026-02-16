@@ -200,6 +200,10 @@ h3 {
   text-align: left;
 }
 
+.hrs-time {
+  text-align: center;
+}
+
 .weather-properties article div img {
   width: 60px;
   height: 80px;
