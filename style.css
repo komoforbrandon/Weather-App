@@ -430,8 +430,8 @@ footer {
     width: 110px;
   }
 
-  article .dayhrs {
-    width: 0px;
+  .today-forcast .dayhrs {
+    width: 0;
   }
 
   .today-forcast div {
