@@ -5,10 +5,11 @@
   padding: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
   color: #fff;
+  box-sizing: border-box;
 }
 
 body {
-  background: #000 url("/assets/weather=thunderstrom.png") center center no-repeat;
+  background: #000 url("assets/weather=thunderstrom.png") center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   width: 100rem;
@@ -50,7 +51,7 @@ main {
   background-color: #14141475;
   color: #fff;
   font-size: 17px;
-  border-radius: 14px;
+  border-radius: 16px;
 }
 
 #search-button {
@@ -152,6 +153,7 @@ h3 {
   text-align: center;
   border-radius: 25px;
   padding: 10px;
+  box-shadow: 2px 4px 2px #00000041;
 }
 
 .daysimgs {
@@ -170,9 +172,9 @@ h3 {
 .days-date {
   display: grid;
   grid-template-columns: 30% 40% 30%;
-  border: 2px solid #00000080;
+  border: 2px ridge #00000080;
   background-color: #0000003d;
-  padding: 5px 10px;
+  padding: 4px 8px;
   border-radius: 20px;
   margin: 14px 0;
 }
@@ -205,7 +207,7 @@ h3 {
 }
 
 .weather-properties article div img {
-  width: 60px;
+  width: 68px;
   height: 80px;
   padding: 10px;
 }
@@ -229,6 +231,14 @@ h3 {
   margin: 5px;
   background-color: #00000075;
   width: 13%;
+}
+
+.today-forcast div:hover,
+.days-date:hover,
+.prev-days div:hover,
+.weather-properties article:hover {
+  transform: scale(1.06);
+  box-shadow: 4px 5px 12px #ffeb3960;
 }
 
 .todayimgs {
@@ -301,7 +311,7 @@ footer {
   #search,
   #search:hover,
   #search:active {
-    width: 100%;
+    width: 550px;
     margin-right: 5px;
     padding: 15px;
   }
@@ -311,7 +321,11 @@ footer {
   header.form {
     display: grid;
     grid-template-columns: 100%;
-    margin: 2px;
+    margin: 5px;
+  }
+
+  #date {
+    display: none;
   }
 
   #search,
@@ -320,6 +334,7 @@ footer {
     margin: 0 5px 2px -4px;
     padding: 8px 14px;
     width: 100%;
+    border-radius: 10px;
   }
 
   #search-button {
@@ -343,7 +358,7 @@ footer {
   }
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
   }
 
@@ -372,12 +387,31 @@ footer {
   }
 
   .weather-properties {
-    grid-template-columns: 100%;
+    grid-template-columns: 50% 50%;
+    margin: 6px;
+    margin-right: 17px;
+    gap: 10px;
+  }
+
+  .weather-properties article {
+    margin: 0;
     gap: 0;
+    width: 100%;
+    padding: 10px;
   }
 
   .disp-flex p {
-    font-size: 2.5rem;
+    font-size: 1.3rem;
+  }
+
+  .weather-properties article div img {
+    width: 45px;
+    height: 50px;
+  }
+
+  .box-design header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 
   .days-date {
@@ -390,6 +424,14 @@ footer {
     grid-template-columns: repeat(7, 1fr);
     width: 100%;
     overflow: scroll;
+  }
+
+  .today-forcast .dayhrs {
+    width: 110px;
+  }
+
+  article .dayhrs {
+    width: 0px;
   }
 
   .today-forcast div {
