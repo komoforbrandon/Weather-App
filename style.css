@@ -51,7 +51,7 @@ main {
   background-color: #14141475;
   color: #fff;
   font-size: 17px;
-  border-radius: 16px;
+  border-radius: 13px;
 }
 
 #search-button {
@@ -237,7 +237,7 @@ h3 {
 .days-date:hover,
 .prev-days div:hover,
 .weather-properties article:hover {
-  transform: scale(1.06);
+  transform: scale(1.04);
   box-shadow: 4px 5px 12px #ffeb3960;
 }
 

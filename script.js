@@ -19,7 +19,7 @@ for (let i = 1; i < 7; i++) {
   parentContainer.appendChild(cloneBlock)
 }
 
-const apiKey = 'fc1c6c83c8214472aad84239260702' // gitleaks:allow
+const apiKey = 'd90de50482114c8e8ea230654262802' // gitleaks:allow
 const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=`
 const temp = document.querySelector('#temp-celcius')
 const searchBox = document.querySelector('#search')
