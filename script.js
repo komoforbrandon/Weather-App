@@ -168,12 +168,14 @@ async function checkWeather (city) {
       document.body.style.backgroundImage = 'url("assets/bgimage.png")'
     } else if (data.current.temp_c > 2 && data.current.temp_c < 14) {
       document.body.style.backgroundImage = 'url("assets/bgweather.png")'
+    } else if (data.current.temp_c > 15 && data.current.temp_c < 28) {
+      document.body.style.backgroundImage = 'url("assets/bg.jpg")'
     } else if (data.current.temp_c > 28 && data.current.temp_c < 34) {
       document.body.style.backgroundImage = 'url("assets/normalweatherimg.jpg")'
     } else if (data.current.temp_c > 34 && data.current.temp_c < 40) {
-      document.body.style.backgroundImage = 'url("assets/bgsun.png")'
-    } else {
       document.body.style.backgroundImage = 'url("assets/naturalsun.jpg")'
+    } else {
+      document.body.style.backgroundImage = 'url("assets/bg-weather (8).png")'
     }
     const night = (new Date(data.current.last_updated)).getHours()
     if ((night > 18 && night <= 23) || (night >= 0 && night < 6)) {
